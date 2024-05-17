@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqfoyek3w8ybm"]
+
+[ext_resource type="PackedScene" uid="uid://brntrr14r8dwl" path="res://scenes/player.tscn" id="1_7e4sm"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_jk4wy"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_jk4wy")
+
+[node name="Player" parent="." instance=ExtResource("1_7e4sm")]
+position = Vector2(160, 552)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 408)
+
+[node name="CurrentGround" type="Node2D" parent="."]
+
+[node name="PointsTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]

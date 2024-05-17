@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2e3gplugoaug"]
+
+[ext_resource type="Script" path="res://scripts/ground.gd" id="2_a5aap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib84f"]
+size = Vector2(1187, 104)
+
+[node name="Base_Ground" type="StaticBody2D" groups=["Grounds"]]
+collision_layer = 2
+script = ExtResource("2_a5aap")
+
+[node name="GroundTextures" type="Node2D" parent="."]
+
+[node name="visible_notifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1165, 285)
+rotation = 1.5708
+scale = Vector2(36.8, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(594.5, 688)
+shape = SubResource("RectangleShape2D_ib84f")
+
+[connection signal="screen_entered" from="visible_notifier" to="." method="_on_visible_notifier_screen_entered"]
+[connection signal="screen_exited" from="visible_notifier" to="." method="_on_visible_notifier_screen_exited"]
