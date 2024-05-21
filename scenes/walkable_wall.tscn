@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://bhmaylotrjvta"]
+[gd_scene load_steps=3 format=3 uid="uid://bhmaylotrjvta"]
+
+[ext_resource type="Script" path="res://scenes/walkable_wall.gd" id="1_okhwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll78q"]
+size = Vector2(169, 94)
 
 [node name="WalkableWall" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_okhwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(86, 49)
+shape = SubResource("RectangleShape2D_ll78q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
