@@ -7,6 +7,7 @@ const CAMERA_START_POS = Vector2i(576,408)
 var loaded_level: PackedScene
 enum levels{JUNGLE,SNOW}
 var current_level = levels.JUNGLE
+var on_walkable_wall:= false
 
 
 
@@ -23,8 +24,8 @@ func _new_game():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	check_loaded_level()
-	$Player.position.x += speed*delta
+	change_loaded_level()
+	
 	$Camera2D.position.x += speed*delta
 	
 
@@ -35,8 +36,8 @@ func _on_ground_generate_next(new_position):
 	terrain.position.x = new_position
 	$CurrentGround.add_child(terrain)
 
-func check_loaded_level():
-	if current_level != levels.SNOW and Globals.points >= 100 and Globals.points <=200:
+func change_loaded_level():
+	if current_level != levels.SNOW and Globals.points >= 1000 and Globals.points <=2000:
 		loaded_level = load("res://scenes/snow_scene.tscn")
 		current_level = levels.SNOW
 	
