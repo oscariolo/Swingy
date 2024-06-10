@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://kisphu66ymdx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6ui1"]
+bg_color = Color(0.972549, 0.972549, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0mip"]
+bg_color = Color(0.992157, 0.592157, 0.121569, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_s6ui1")
+Label/styles/normal = SubResource("StyleBoxFlat_w0mip")

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dfp27k38qwnjd"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SplashScene" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SplashScene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SplashScene/CenterContainer"]
+layout_mode = 2
+text = "Titulo en progreso waos"
+
+[node name="NewGameMenu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Button" parent="NewGameMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game"
+
+[node name="Options" type="Button" parent="NewGameMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"

@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://b80b3dolfaqla"]
+
+[ext_resource type="Texture2D" uid="uid://byobonssy3mwk" path="res://assets/arrow.png" id="1_sfdvg"]
+[ext_resource type="Script" path="res://scenes/arrow.gd" id="1_uoac6"]
+
+[node name="Arrow" type="Area2D"]
+scale = Vector2(-1, -1)
+script = ExtResource("1_uoac6")
+
+[node name="ChildrenArrows" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MiddleArrow" type="Area2D" parent="ChildrenArrows"]
+position = Vector2(-60, 0)
+
+[node name="ArrowSprite" type="Sprite2D" parent="ChildrenArrows/MiddleArrow"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sfdvg")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ChildrenArrows/MiddleArrow"]
+polygon = PackedVector2Array(-8, -24, 32, 0, -8, 33)
+
+[node name="LastArrow" type="Area2D" parent="ChildrenArrows"]
+position = Vector2(-120, 0)
+
+[node name="ArrowSprite" type="Sprite2D" parent="ChildrenArrows/LastArrow"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sfdvg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChildrenArrows/LastArrow"]
+position = Vector2(0, 1)
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-16, -50, 64, -2, -16, 62)
+
+[node name="MiddleArrow2" type="Area2D" parent="ChildrenArrows"]
+position = Vector2(-180, 0)
+
+[node name="ArrowSprite" type="Sprite2D" parent="ChildrenArrows/MiddleArrow2"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sfdvg")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ChildrenArrows/MiddleArrow2"]
+polygon = PackedVector2Array(-8, -24, 32, 0, -8, 33)
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_sfdvg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, -47, 64, 0, -16, 64)
+
+[node name="free" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="free" to="." method="_on_free_timeout"]
