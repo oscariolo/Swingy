@@ -3,7 +3,7 @@ extends Node2D
 var speed= 10
 var direction = Vector2.ZERO
 @export var lerp_coef:= 0.1
-var current_pos_head:= Vector2(1980,100)
+var current_pos_head:= Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +14,7 @@ func _ready():
 func _physics_process(delta):
 	_follow_up_relative_to(current_pos_head)
 	current_pos_head += Vector2(-2,0)*speed
+	global_position = current_pos_head
 	
 
 func _follow_up_relative_to(new_head_position):
@@ -25,7 +26,6 @@ func _follow_up_relative_to(new_head_position):
 		child.global_position = prev_pos_child.lerp(father_position - diff,lerp_coef)
 		father_position = child.global_position
 		
-	global_position = new_head_position
 
 func _on_free_timeout():
 	queue_free()

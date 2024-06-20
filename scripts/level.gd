@@ -39,10 +39,6 @@ func _on_ground_generate_next(new_position):
 
 func change_loaded_level():
 	if current_level != levels.SNOW and Globals.points >= 100 and Globals.points <=200:
-		var region_rect_x = 30
-		var current_region = $ParallaxBackground/ParallaxLayer/Sprite2D.get_region_rect() as Rect2
-		current_region.position.x = region_rect_x
-		$ParallaxBackground/ParallaxLayer/Sprite2D.set_region_rect(current_region)
 		loaded_level = load("res://scenes/snow_scene.tscn")
 		current_level = levels.SNOW
 		

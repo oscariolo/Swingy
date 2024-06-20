@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://do5m2xbrmjyst"]
+
+[ext_resource type="Script" path="res://scenes/UI/new_game_menu.gd" id="1_mx0dv"]
+
+[node name="NewGameMenu" type="HBoxContainer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_vertical = 3
+script = ExtResource("1_mx0dv")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="btn_new_game" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game"
+
+[node name="btn_options" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HBoxContainer/btn_new_game" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/btn_options" to="." method="_on_btn_options_pressed"]

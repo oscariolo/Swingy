@@ -63,22 +63,20 @@ func _wallride_control():
 		velocity.y = lerp(velocity.y,0.0,0.25)
 	
 func _jump_control():
-	
+	if $CoyoteTimer.time_left >0 and is_on_floor():
+			velocity.y = jump_velocity
+			can_jump = false
 	#Jump input
 	if Input.is_action_just_pressed("jump"):
-		if $CoyoteTimer.time_left >0 and is_on_floor():
+		if can_jump:
 			velocity.y = jump_velocity
 			can_jump = false
 		else:
-			if can_jump:
+			if can_double_jump:
 				velocity.y = jump_velocity
-				can_jump = false
+				can_double_jump = false
 			else:
-				if can_double_jump:
-					velocity.y = jump_velocity
-					can_double_jump = false
-				else:
-					$CoyoteTimer.start()
+				$CoyoteTimer.start()
 			
 	#falloff
 	if Input.is_action_just_released("jump"):
